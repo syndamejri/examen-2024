@@ -1,1 +1,30 @@
-<p>add-donation-component works!</p>
+<div class="container">
+    <h2>Add Donation</h2>
+    <form [formGroup]="donationForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="amount">Amount</label>
+        <input id="amount" formControlName="amount" type="text" />
+      </div>
+      <div>
+        <label for="donationDate">Donation Date</label>
+        <input id="donationDate" formControlName="donationDate" type="date" />
+      </div>
+      <div formGroupName="donor">
+        <h3>Donor Information</h3>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" formControlName="name" type="text" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" type="email" />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" formControlName="phone" type="text" />
+        </div>
+      </div>
+      <button type="submit" [disabled]="!donationForm.valid">Ajouter</button>
+    </form>
+  </div>
+  
